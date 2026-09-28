@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Assessment Center{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body data-popup="{{ 'true' if request.args.get('popup') == '1' else 'false' }}" data-screen-width="{{ request.args.get('screen_width', '') }}" data-screen-height="{{ request.args.get('screen_height', '') }}" data-base-dpr="{{ request.args.get('base_dpr', '') }}">
+  {% block content %}{% endblock %}
+  <section class="configuration-check hidden" id="configuration-check" aria-live="assertive" aria-modal="true" role="dialog">
+    <div class="configuration-card">
+      <header>Final Assessment</header>
+      <h1>Online Assessment System prerequisite check</h1>
+      <div class="configuration-content">
+        <div class="configuration-status"><h2>Status</h2><p id="resolution-status"></p><p id="zoom-status"></p></div>
+        <div class="configuration-details"><h2>System Configuration</h2><p id="resolution-detail"></p><h2>Browser Configuration</h2><p id="zoom-detail"></p><button id="configuration-retry" type="button">Try Again</button></div>
+      </div>
+      <footer>Version : 17.07.00</footer>
+    </div>
+  </section>
+  <script src="{{ url_for('static', filename='js/configuration-check.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/popup-launcher.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+build/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+*.egg
+
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# Testing
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+
+# Type checkers
+.mypy_cache/
+.pyre/
+.pytype/
+
+# Logs
+*.log
+logs/
+
+# Environment variables / secrets
+.env
+.env.*
+*.env
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# SQLite databases
+*.db
+*.sqlite3
+
+# Project-specific generated files
+output/
+outputs/
+results/
+reports/
+
+# Flask
+instance/
+.webassets-cache
+
+# Django
+db.sqlite3
+media/
+
+# FastAPI
+*.pid
+
+# PyInstaller
+*.spec
+
+# Coverage reports
+coverage.xml
+
+# Secrets / keys
+*.pem
+*.key
+*.crt
+credentials.json
+secrets.json

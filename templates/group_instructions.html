@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}Group Instructions - Assessment Center{% endblock %}
+{% block content %}
+<div class="instruction-page group-instructions-page">
+  <header class="instruction-top">Final Assessment</header>
+  <main class="instruction-shell">
+    <section class="instruction-main">
+      <div class="instruction-heading">Group Instructions</div>
+      <div class="instruction-scroll">
+        <div class="instruction-language"><label>View in : <select><option>English</option><option>Hindi</option></select></label></div>
+        <div class="instructions-copy group-instructions-copy">
+          <p>1) You are about to start the Group "General Knowledge"</p>
+          <p>2) This group contains four sections.</p>
+          <p>3) All the four sections are mandatory for you to attempt.</p>
+          <p>&nbsp;</p>
+          <p>5) You cannot submit this group within 1 minute.</p>
+          <p>6) You are allowed to revisit the group upon submission and edit your responses.</p>
+          <p>7) You can start attending this group after 1 minute and maximum time to read the instructions is 2 minutes. You can also revisit these instructions from the candidate console while attempting the Group.</p>
+        </div>
+      </div>
+      <div class="instruction-actions group-proceed"><div class="begin-row"><button id="group-proceed" type="button">Proceed</button></div></div>
+    </section>
+    <aside class="candidate-panel"><h2>Nishant Mishra</h2></aside>
+  </main>
+  <footer class="app-footer">Version : 17.07.00</footer>
+</div>
+<script>document.getElementById('group-proceed').addEventListener('click', () => { window.location.href = '/assessment?popup=1'; });</script>
+{% endblock %}

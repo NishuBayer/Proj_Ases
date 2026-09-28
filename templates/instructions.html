@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+{% block title %}Instructions - Assessment Center{% endblock %}
+{% block content %}
+{% if request.args.get('popup') != '1' %}
+<div class="popup-launch-screen">
+  <section class="popup-launch-card">
+    <h1>Final Assessment</h1>
+    <p>This assessment runs in a dedicated full-size browser window.</p>
+    <a class="popup-launch-button" data-launch-popup href="{{ url_for('instructions', popup=1) }}">Open Assessment</a>
+    <p class="popup-blocked-message">Your browser blocked the assessment window. Enable popups for this site, then select <strong>Open Assessment</strong> again.</p>
+  </section>
+</div>
+{% else %}
+<div class="instruction-page">
+  <header class="instruction-top"></header>
+  <main class="instruction-shell">
+    <section class="instruction-main">
+      <div class="instruction-heading" id="instruction-heading">Instructions</div>
+      <div class="instruction-scroll" id="instruction-scroll">
+        <div class="instruction-language"><label>View in : <select><option>English</option><option>Hindi</option></select></label></div>
+        <div class="instructions-copy" id="instructions-page-one">
+          <h2>Please read the instructions carefully</h2>
+          <h3>General Instructions:</h3>
+          <ol>
+            <li>Total duration of examination is 45 minutes.</li>
+            <li>The clock will be set at the server. The countdown timer in the top right corner of screen will display the remaining time available for you to complete the examination. When the timer reaches zero, the examination will end by itself. You will not be required to end or submit your examination.</li>
+            <li>The Question Palette displayed on the right side of screen will show the status of each question using one of the following symbols:</li>
+          </ol>
+          <div class="legend-explain"><span class="status-box not-visited">1</span><span>You have not visited the question yet.</span></div>
+          <div class="legend-explain"><span class="status-box not-answered">2</span><span>You have not answered the question.</span></div>
+          <div class="legend-explain"><span class="status-box answered">3</span><span>You have answered the question.</span></div>
+          <div class="legend-explain"><span class="status-box marked">4</span><span>You have NOT answered the question, but have marked the question for review.</span></div>
+          <div class="legend-explain"><span class="status-box marked answered-mark">5</span><span>The question(s) "Marked for Review" will be considered for evaluation.</span></div>
+          <div class="legend-explain"><span class="status-box marked not-eval">6</span><span>The question(s) "Marked for Review" will not be considered for evaluation.</span></div>
+          <p class="indent">The Marked for Review status for a question simply indicates that you would like to look at that question again.</p>
+          <ol start="4"><li>You can click on the &gt; arrow which appears to the left of question palette to collapse the question palette thereby maximizing the question window.</li><li>You can click on your Profile link on top right corner of your screen to change the language during the exam for entire question paper.</li><li>You can click on <img class="instruction-nav-icon" src="https://cdn3.digialm.com/OnlineAssessment/images/Down.png" alt="Down"> to navigate to the bottom and <img class="instruction-nav-icon" src="https://cdn3.digialm.com/OnlineAssessment/images/Up.png" alt="Up"> to navigate to the top of the question area, without scrolling.</li></ol>
+          <h3>Navigating to a Question:</h3>
+          <ol start="7"><li>To answer a question, do the following:<ol type="a"><li>Click on the question number in the Question Palette at the right of your screen to go to that numbered question directly.</li><li>Click on <strong>Save &amp; Next</strong> to save your answer for the current question and then go to the next question.</li><li>Click on <strong>Mark for Review &amp; Next</strong> to save your answer for the current question, mark it for review, and then go to the next question.</li></ol></li></ol>
+          <h3>Answering a Question :</h3>
+          <ol start="8"><li>Procedure for answering a multiple choice type question:<ol type="a"><li>To select your answer, click on the button of one of the options.</li><li>To deselect your chosen answer, click on the button of the chosen option again or click on the <strong>Clear Response</strong> button.</li><li>To change your chosen answer, click on the button of another option.</li><li>To save your answer, you MUST click on the <strong>Save &amp; Next</strong> button.</li><li>To mark the question for review, click on the <strong>Mark for Review &amp; Next</strong> button.</li></ol></li><li>To change your answer to a question that has already been answered, first select that question for answering and then follow the procedure for answering that type of question.</li></ol>
+          <h3>Navigating through sections:</h3>
+          <ol start="10"><li>Sections in this question paper are displayed on the top bar of the screen. Questions in a section can be viewed by clicking on the section name. The section you are currently viewing is highlighted.</li><li>After clicking the Save &amp; Next button on the last question for a section, you will automatically be taken to the first question of the next section.</li><li>You can shuffle between sections and questions anytime during the examination as per your convenience only during the time stipulated.</li><li>Candidate can view the corresponding section summary as part of the legend that appears in every section above the question palette.</li></ol>
+          <h3>Interruption Instructions for Online Assessment :</h3>
+          <ol type="a"><li>Do not try to minimize the Assessment console.</li><li>Do not press F5 or refresh the assessment.</li><li>Do not toggle between Assessment console and other application.</li><li>Do not press special keys on the keyboard.</li><li>Do not click the Taskbar, Settings on the browser.</li></ol>
+        </div>
+        <div class="instructions-copy hidden" id="instructions-page-two">
+          <p>You are about to start the "TCS iON Mock Assessment" examination. This page helps you to understand the overall structure of the Question Paper.</p>
+          <h3>Group wise Instructions :</h3>
+          <p>There are 8 Groups in this examination as follows :-</p>
+          <ol class="group-list"><li>General Knowledge</li><li>Psychometric Question</li><li>Psychometric Test</li><li>Typing Test</li><li>Typing Test Unrestricted</li><li>Typing Test Stenography</li><li>Social Awareness</li><li>Subjective</li></ol>
+          <h3>Group 1 - General Knowledge :</h3><p>This group contains four sections - Section 1, Section 2, Section 3, Section 4. All the questions in four sections are mandatory for you to attempt and you cannot submit this group within 1 minute.</p>
+          <h3>Group 2 - Psychometric Question :</h3><p>In this group, you will be able to see an image. Please go through the same carefully which will help you to and answer the questions asked in the next group, "Psychometric Test". The maximum time allotted to view the image is 1 minute.</p>
+          <h3>Group 3 - Psychometric Test :</h3><p>Answer all the based on the image that you studied in the group "Psychometric Question".</p>
+          <h3>Group 4 - Typing Test :</h3><p>Go through the given passage carefully and type the same. The cursor will not move further unless the correct characters are typed. The maximum time allotted is 1 minute. You can take a break of 1 minute upon the completion of this test.</p>
+          <h3>Group 5 - Typing Test Unrestricted :</h3><p>Go through the given passage carefully and type the same. Please note that the Backspace and delete key count will be traced.</p>
+          <h3>Group 6 - Typing Test Stenography :</h3><p>Listen to the audio played in the background carefully and type the same. You are not allowed to press the backspace and delete key.</p>
+          <h3>Group 7 - Social Awareness :</h3><p>This group contains 3 sections. Section A is mandatory. You have to select any one out of two sections from 'Optional Sec 1' or 'Optional Sec 2'.</p>
+          <h3>Group 8 - Subjective :</h3><p>Go through the question and provide your answers in the answer sheet provided.</p>
+          <h3>General Instructions :</h3>
+          <ol><li>Some of the questions contain Audio / Video contents. Please ensure that your system supports to hear the audio and play the video clearly.</li><li>For the questions that require upload of files, please ensure that the file size doesnt exceed the specified limit.</li><li>Group 1, Group 3, Group 7: You can view these groups even after submitting the Group. Rest of the groups cannot be viewed upon the submission.</li><li>Group 1: You can edit the responses in this group as well after submitting the Group. Rest of the groups are not editable upon the submission.</li><li>For the questions that require Audio / Video response, please ensure that you have the microphone/webcam connected to the system and the browser is allowed to access the microphone/webcam.</li></ol>
+          <p><strong>Note :</strong> You can view these instructions any time during the assessment by clicking the link 'Instructions' at the top right of the candidate console.</p>
+        </div>
+      </div>
+      <div class="instruction-actions"><div class="instruction-options hidden" id="instruction-options"><label>Choose your default language : <select><option>-- Select --</option><option>English</option><option>Hindi</option></select></label><p>Please note all questions will appear in your default language. This language can be changed for a particular question later on.</p></div><div class="agreement"><label><input id="agreement" type="checkbox"> <span id="agreement-copy">I have read and understood the instructions and agree to adhere to them.</span></label></div><div class="begin-row"><button id="previous-instructions" class="hidden" type="button">‹ Previous</button><button id="next-instructions" type="button">Next ›</button><button id="begin" class="hidden" disabled>I am ready to begin</button></div></div>
+    </section>
+    <aside class="candidate-panel"><h2>Nishant Mishra</h2></aside>
+  </main>
+  <footer class="app-footer">Version : 17.07.00</footer>
+</div>
+<div class="language-info-modal hidden" id="language-info-modal" role="alertdialog" aria-modal="true" aria-labelledby="language-info-title"><section><header id="language-info-title">Info <button id="close-language-info" type="button">Close&nbsp; ✕</button></header><div><span class="language-info-icon" aria-hidden="true">i</span><p>Please select the default Language to proceed further</p></div><footer><button id="language-info-ok" type="button">OK</button></footer></section></div>
+<script>
+const agreement = document.getElementById('agreement');
+const begin = document.getElementById('begin');
+const next = document.getElementById('next-instructions');
+const previous = document.getElementById('previous-instructions');
+const pageOne = document.getElementById('instructions-page-one');
+const pageTwo = document.getElementById('instructions-page-two');
+const heading = document.getElementById('instruction-heading');
+const scroll = document.getElementById('instruction-scroll');
+const agreementCopy = document.getElementById('agreement-copy');
+const instructionOptions = document.getElementById('instruction-options');
+const defaultLanguage = document.querySelector('#instruction-options select');
+const languageInfoModal = document.getElementById('language-info-modal');
+const closeLanguageInfo = () => languageInfoModal.classList.add('hidden');
+document.getElementById('language-info-ok').addEventListener('click', closeLanguageInfo);
+document.getElementById('close-language-info').addEventListener('click', closeLanguageInfo);
+function showInstructionPage(page) {
+  const secondPage = page === 2;
+  pageOne.classList.toggle('hidden', secondPage);
+  pageTwo.classList.toggle('hidden', !secondPage);
+  document.querySelector('.instruction-page').classList.toggle('instruction-page-two', secondPage);
+  heading.textContent = secondPage ? 'Other Important Instructions' : 'Instructions';
+  previous.classList.toggle('hidden', !secondPage);
+  next.classList.toggle('hidden', secondPage);
+  begin.classList.toggle('hidden', !secondPage);
+  instructionOptions.classList.toggle('hidden', !secondPage);
+  agreementCopy.textContent = secondPage
+    ? 'I have read and understood the instructions. All computer hardware allotted to me are in proper working condition. I declare that I am not in possession of / not wearing / not carrying any prohibited gadget like mobile phone, bluetooth devices etc. / any prohibited material with me into the Examination Hall. I agree that in case of not adhering to the instructions, I shall be liable to be debarred from this Test and/or to disciplinary action, which may include ban from future Tests / Examinations.'
+    : 'I have read and understood the instructions and agree to adhere to them.';
+  scroll.scrollTop = 0;
+  agreement.checked = false;
+  begin.disabled = true;
+}
+agreement.addEventListener('change', () => begin.disabled = !agreement.checked);
+next.addEventListener('click', () => showInstructionPage(2));
+previous.addEventListener('click', () => showInstructionPage(1));
+begin.addEventListener('click', () => {
+  if (defaultLanguage.value === '-- Select --') {
+    languageInfoModal.classList.remove('hidden');
+    return;
+  }
+  window.location.href = '/group-instructions?popup=1';
+});
+</script>
+{% endif %}
+{% endblock %}
